@@ -3,10 +3,9 @@ package app.com.beyond_paper.popularmovies;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.os.Parcelable;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,15 +15,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import static app.com.beyond_paper.popularmovies.Constants.TMDB_POSTER_URL;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+
+import static app.com.beyond_paper.popularmovies.Constants.TMDB_POSTER_URL;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -32,8 +30,9 @@ import java.util.List;
 public class AllMovieGridViewFragment extends Fragment {
     public MovieAdapter mMovieAdapter;
     /*
-    *Dummy data new MovieList(id, poster, name, synopsis, user_rating, release_date, on_video)
-    */
+     *Dummy data new MovieList(id, poster, name, synopsis, user_rating, release_date, on_video)
+     * Some code used from https://github.com/udacity/android-custom-arrayadapter
+     */
     public MovieList[] mMovieLists={
             new MovieList("140607", "/fYzpM9GmpBlIC893fNjoWCwE24H.jpg", "Star Wars: The Force Awakens", "The Description", 7.85, "2015-12-18", "false"),
             new MovieList("135397", "/jcUXVtJ6s0NG0EaxllQCAUtqdr0.jpg", "Jurassic World", "The Description", 6.7, "2015-06-12", "false"),
@@ -66,7 +65,7 @@ public class AllMovieGridViewFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         if(savedInstanceState == null || !savedInstanceState.containsKey("movie")){
-            movieList = new ArrayList<MovieList>(Arrays.asList(mMovieLists));
+            movieList = new ArrayList<>(Arrays.asList(mMovieLists));
         }else{
             movieList = savedInstanceState.getParcelableArrayList("movie");
         }
@@ -180,7 +179,6 @@ public class AllMovieGridViewFragment extends Fragment {
                 Double user_rating = movie.getDouble(TMDB_USER_RATING);
                 String release_date = movie.getString(TMDB_RELEASE_DATE);
                 String on_video = movie.getString(TMDB_ON_VIDEO);
-                if(on_video == "false"){on_video = "No";}else{on_video="Yes";}
 
                 //for logging purposes
                 //String mLog = id+" "+poster+" "+name+" "+synopsis+" "+user_rating+" "+release_date+" "+on_video;
