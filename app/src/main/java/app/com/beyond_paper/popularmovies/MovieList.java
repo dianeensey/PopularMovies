@@ -3,8 +3,6 @@ package app.com.beyond_paper.popularmovies;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.List;
-
 /**
  * Class to hold the Movie Data
  * Based on https://github.com/udacity/android-custom-arrayadapter

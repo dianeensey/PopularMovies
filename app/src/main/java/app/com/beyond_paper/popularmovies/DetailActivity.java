@@ -1,10 +1,8 @@
 package app.com.beyond_paper.popularmovies;
 
 import android.content.Intent;
-
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -15,13 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import static app.com.beyond_paper.popularmovies.Constants.PAR_KEY;
-import static app.com.beyond_paper.popularmovies.Constants.TMDB_POSTER_URL;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import static app.com.beyond_paper.popularmovies.Constants.PAR_KEY;
+import static app.com.beyond_paper.popularmovies.Constants.TMDB_POSTER_URL;
 
 public class DetailActivity extends ActionBarActivity {
     String movieString;
